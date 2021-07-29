@@ -1,6 +1,41 @@
 'use strict';
 
+// 8 (Bonus)
+function sort(string) {
+    let array = [];
+    let result = ''
+    for(let i=0;i<string.length;i++) {
+      array.push(string[i])
+    }
+    let str = ''
+    for(let i=0;i<array.length;i++) {
+      for(let j=0;j<array.length - 1;j++) {
+        if (array[j] > array[j+1]) {
+          let temp = array[j];
+          array[j] = array[j+1];
+          array[j+1] = temp;
+        }
+      }
+    }
+    for(let i=0;i<array.length;i++) {
+      result += array[i]
+    }
+    return result;
+  }
+  
 // 8
+function pyramid(rows) {
+    for (let row = 0; row < rows; row++) {
+      var str = '';
+      for (let space = 1; space < rows-row; space++) {
+        str += ' ';
+      }
+      for (let star = 1; star <= (2*row+1); star++) {
+        str += '*';
+      }
+      console.log(str);
+    }
+}
 
 // 7
 function asterix(q) {
@@ -16,6 +51,7 @@ function asterix(q) {
 
 // 6
 function exchangeCoin(number) {
+    if (typeof number !== 'number') return 'Error, harus number'
     let exchange = '';
     while (number > 0) {
         if (number - 1000 >= 0) {
@@ -47,23 +83,17 @@ function exchangeCoin(number) {
             number -= 1
         }
     }
-    console.log(exchange);
+    return exchange;
 }
 
-exchangeCoin(1752)
+// exchangeCoin(1752)
 
 // 5
 function palindrome(word) {
-    if (word.length < 2) {
-        return false;
-    } else {
-        let kebalikan = reverseWord(word);
-        if (word === kebalikan) {
-            return true;
-        } else {
-            return false;
-        }
+    if (word.length > 2 && word === reverseWord(word)) {
+        return true;
     }
+    return false;
 }
 
 console.log(palindrome('hh'))
@@ -87,19 +117,19 @@ function countVowelAndConsonant(word) {
     if (typeof word !== 'string') {
         return 'Error, input bukan string'
     } else {
+        let kata = word.toLowerCase()
         let consonant = 0;
         let vowel = 0;
-        for(let i=0;i<word.length;i++) {
-            if (word[i] === 'a' || word[i] === 'i' || word[i] === 'u' || word[i] === 'e' || word[i] === 'o') {
+        for(let i=0;i<kata.length;i++) {
+            if (kata[i] === 'a' || kata[i] === 'i' || kata[i] === 'u' || kata[i] === 'e' || kata[i] === 'o') {
                 vowel++
-            } else {
+            } else if (kata[i] !== ' '){
                 consonant++
             }
         }
         return `Jumlah vokal: ${vowel}, Jumlah consonant: ${consonant}`
     }
 }
-
 // console.log(countVowelAndConsonant('ghabriel')) 
 
 // 2
