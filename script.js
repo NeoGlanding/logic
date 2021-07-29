@@ -1,5 +1,7 @@
 'use strict';
 
+// 8
+
 // 7
 function asterix(q) {
     for(let i = 1;i<=q;i++) {
