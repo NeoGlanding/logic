@@ -1,5 +1,17 @@
 'use strict';
 
+// 7
+function asterix(q) {
+    for(let i = 1;i<=q;i++) {
+      let str = ""
+      for(let j=1;j<=i;j++) {
+        str += '*'
+      }
+      str += '\n'
+      console.log(str)
+    }
+  }
+
 // 6
 function exchangeCoin(number) {
     let exchange = '';
